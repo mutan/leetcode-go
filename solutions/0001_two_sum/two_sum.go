@@ -27,6 +27,34 @@
 
 // Follow-up: Can you come up with an algorithm that is less than `O(n^2)` time complexity?
 
-package main
+package twoSum
 
-func main() {}
+// Time complexity: O(n)
+// Space complexity: O(n)
+func twoSum(nums []int, target int) []int {
+	numIdxMap := make(map[int]int)
+
+	for i, num := range nums {
+		complement := target - num
+		if j, ok := numIdxMap[complement]; ok {
+			return []int{j, i}
+		}
+		numIdxMap[num] = i
+	}
+
+	return []int{}
+}
+
+// Time complexity: O(n^2)
+// Space complexity: O(1)
+func twoSumBruteForce(nums []int, target int) []int {
+	for i := 0; i < len(nums); i++ {
+		for j := 1; j < len(nums); j++ {
+			if nums[i]+nums[j] == target {
+				return []int{i, j}
+			}
+		}
+	}
+
+	return []int{}
+}
