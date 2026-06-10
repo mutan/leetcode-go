@@ -27,7 +27,7 @@
 
 // Follow-up: Can you come up with an algorithm that is less than `O(n^2)` time complexity?
 
-package twoSum
+package twosum
 
 // Time complexity: O(n)
 // Space complexity: O(n)

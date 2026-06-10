@@ -1,0 +1,26 @@
+version: '3'
+
+tasks:
+
+  default:
+    desc: Show available tasks
+    cmds:
+      - task --list
+
+  sh:
+    desc: Open shell (bash) inside Go container
+    cmds:
+      - docker compose run --rm --name leetcode-go-cli go-cli bash
+
+  test-all:
+    desc: Run tests for all solutions
+    cmds:
+      - docker compose run --rm go-cli go test ./solutions/... -v
+
+  test:
+    desc: "Run tests for one solution. SOLUTION is the folder name under solutions/. Example: task test SOLUTION=0001_two_sum"
+    requires:
+      vars:
+        - SOLUTION
+    cmds:
+      - docker compose run --rm go-cli go test ./solutions/{{.SOLUTION}} -v
