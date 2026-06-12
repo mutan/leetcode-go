@@ -10,7 +10,7 @@ tasks:
   sh:
     desc: Open shell (bash) inside Go container
     cmds:
-      - docker compose run --rm --name leetcode-go-cli go-cli bash
+      - docker compose run --rm go-cli bash
 
   test-all:
     desc: Run tests for all solutions
