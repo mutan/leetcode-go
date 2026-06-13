@@ -12,10 +12,12 @@ tasks:
     cmds:
       - docker compose run --rm go-cli bash
 
+  # Usage: test-all
+  # Usage: test-all -- -v
   test-all:
     desc: Run tests for all solutions
     cmds:
-      - docker compose run --rm go-cli go test ./solutions/... -v
+      - docker compose run --rm go-cli go test ./solutions/... {{.CLI_ARGS}}
 
   test:
     desc: "Run tests for one solution. SOLUTION is the folder name under solutions/. Example: task test SOLUTION=0001_two_sum"
